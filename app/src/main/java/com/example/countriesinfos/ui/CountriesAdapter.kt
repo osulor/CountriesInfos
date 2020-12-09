@@ -7,8 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.countriesinfos.R
-import com.example.countriesinfos.data.Countries
-import com.example.countriesinfos.data.CountriesItem
+import com.example.countriesinfos.data.model.CountriesItem
 
 class CountriesAdapter(private val countriesList: List<CountriesItem>) : RecyclerView.Adapter<CountriesAdapter.CountriesViewHolder>(){
 

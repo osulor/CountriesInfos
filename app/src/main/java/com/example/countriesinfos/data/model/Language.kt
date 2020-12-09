@@ -1,4 +1,4 @@
-package com.example.countriesinfos.data
+package com.example.countriesinfos.data.model
 
 data class Language(
     val iso639_1: String,

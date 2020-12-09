@@ -1,4 +1,4 @@
-package com.example.countriesinfos.data
+package com.example.countriesinfos.data.model
 
 data class RegionalBloc(
     val acronym: String,

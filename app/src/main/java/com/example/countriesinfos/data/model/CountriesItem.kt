@@ -1,9 +1,5 @@
-package com.example.countriesinfos.data
+package com.example.countriesinfos.data.model
 
-import com.example.countriesinfos.data.Currency
-import com.example.countriesinfos.data.Language
-import com.example.countriesinfos.data.RegionalBloc
-import com.example.countriesinfos.data.Translations
 
 data class CountriesItem(
     val alpha2Code: String,
