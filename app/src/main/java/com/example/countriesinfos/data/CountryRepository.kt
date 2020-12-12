@@ -4,8 +4,8 @@ import com.example.countriesinfos.data.model.CountriesItem
 import com.example.countriesinfos.remote.RetrofitInstance
 import retrofit2.Response
 
-interface CountryRepository {
+class CountryRepository {
     suspend fun getCountries() : Response<List<CountriesItem>>{
-        return RetrofitInstance().Country_API.getCountries()
+        return RetrofitInstance().country_API.getCountries()
     }
 }

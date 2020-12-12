@@ -20,11 +20,12 @@ class RetrofitInstance {
             Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
+                .client(httpClient)
                 .build()
         }
     }
 
-    val Country_API: CountryService by lazy {
+    val country_API: CountryService by lazy {
         retrofitInstance.create(CountryService::class.java)
     }
 
