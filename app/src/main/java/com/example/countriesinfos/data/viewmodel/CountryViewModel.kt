@@ -20,27 +20,31 @@ class CountryViewModel(private val countryRepository: CountryRepository): ViewMo
         get() = _countriesList
 
      fun getCountries(){
-
         // _apiCallState.value = ApiCallState.Loading()
 
          _apiCallState.value = ApiCallState.Success()
 
-
          viewModelScope.launch {
-
-            val response = countryRepository.getCountries()
-
+            val response = countryRepository.getCountriesFromApi()
             if (response.isSuccessful) {
-
                 response.body()?.let {responseBody ->
                     _countriesList.value = responseBody
-
+               //     insertCountriesIntoDB(responseBody)
                 }
             } else {
                 _apiCallState.value = ApiCallState.Error(response.message())
             }
         }
-
      }
-  
+
+    suspend fun insertCountriesIntoDB(countries: List<CountriesItem>){
+        for (country in countries){
+            countryRepository.insertCountry(country)
+        }
+    }
+
+//    suspend fun retrieveCoutriesFromDB() : List<CountriesItem> {
+//      return  countryRepository.getCountriesFromDB()
+//    }
+//
 }

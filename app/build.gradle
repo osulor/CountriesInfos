@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+   // apply plugin: 'kotlin-kapt'
 }
 
 android {
@@ -9,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.countriesinfos"
-        minSdkVersion 23
+        minSdkVersion 26
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -29,6 +31,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding true
     }
 }
 
@@ -62,9 +68,11 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:4.10.0"
     annotationProcessor "com.github.bumptech.glide:compiler:4.10.0"
 
+    //Glide with svg extensions
+    implementation 'com.github.qoqa:glide-svg:2.0.4'
+
     // Architectural Components
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
-
 
     // Kotlin Extensions and Coroutines support for Room
     implementation "androidx.room:room-ktx:2.2.5"
@@ -76,6 +84,20 @@ dependencies {
     // Coroutine Lifecycle Scopes
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0"
+
+    //SVG Loader
+    implementation 'com.github.ar-android:AndroidSvgLoader:1.0.2'
+
+    def room_version = "2.2.5"
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+
+//    // Room components
+//    implementation "androidx.room:room-ktx:$rootProject.roomVersion"
+//    kapt "androidx.room:room-compiler:$rootProject.roomVersion"
+
+   androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
